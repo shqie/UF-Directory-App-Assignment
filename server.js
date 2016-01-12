@@ -6,21 +6,45 @@ var http = require('http'),
 /* Global variables */
 var listingData, server;
 
+
 var requestHandler = function(request, response) {
   var parsedUrl = url.parse(request.url);
-
+  
   /*
     Your request handler should send listingData in the JSON format if a GET request 
     is sent to the '/listings' path. Otherwise, it should send a 404 error. 
 
     HINT: explore the request object and its properties 
     http://stackoverflow.com/questions/17251553/nodejs-request-object-documentation
-   */
+  */
+
+  // GET request is sent to the 'listings' path.
+  // Sent status code 200.
+  if (parsedUrl.pathname === "/listings" ){
+    response.writeHead(200,{'Content-Type' :'application/json'});
+    response.write(listingData);
+    response.end();
+  }
+
+  // Sent status code 404.
+  else{
+    response.writeHead(404);    
+    response.write('Bad gateway error');
+    response.end();
+  }
 };
+
 
 fs.readFile('listings.json', 'utf8', function(err, data) {
   /*
     This callback function should save the data in the listingData variable, 
     then start the server. 
    */
+
+  // Data is saved in a string buffer from the JSON object.
+  listingData = JSON.stringify(JSON.parse(data));
+  
+  // Server gets created and start listening on the port.
+  server = http.createServer(requestHandler);
+  server.listen(port);
 });
