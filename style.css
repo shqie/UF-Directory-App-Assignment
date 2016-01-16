@@ -5,4 +5,53 @@
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
+
 }
+
+
+.three-col {
+    overflow: hidden;
+}
+
+.three-col .col1,
+.three-col .col2,
+.three-col .col3 {
+    width 49%;
+}
+
+.three-col .col1 {
+    float: left;
+    width: 45%;
+}
+
+.three-col .col2 {
+    float: right;
+    width: 45%;
+}
+
+.three-col .col3 {
+    clear: left;
+    width: 100%;
+}
+
+input {
+	width : 100%;
+}
+
+
+.three-col .col4 {
+    float: left;
+    width: 45%;
+}
+
+.three-col .col5 {
+    float: right;
+    width: 45%;
+}
+
+
+.three-col label {
+    display: block;
+}
+
+

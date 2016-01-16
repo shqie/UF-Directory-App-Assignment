@@ -41,12 +41,45 @@
                 </tr>
             </table>
           </div>
+
           <!-- 
               Write an HTML form that adds new listings to the directory 
             -->
 
+        <h3>Add New Listing</h3>
+    
+        <div class="three-col">
+            <div class="col1">
+                <label for="codeField">Code:</label>
+                <input id="codeField" name="codeField" type="text" ng-model="newListing.code" </label>
+            </div>
+
+            <div class="col2">
+                <label for="nameField">Name:</label>
+                <input id="nameField" name="nameField" type="text" ng-model="newListing.name" </label>
+            </div>
+
+            <div class="col4">
+                <label for="latitudeField">Latitude Coordinate:</label>
+                <input id="latitudeField" name="latitudeField" type="text" ng-model="newListing.coordinates.latitude" </label>
+            </div>
+
+            <div class="col5">
+                <label for="longitudeField">Longitude Coordinate:</label>
+                <input id="longitudeField" name="longitudeField" type="text" ng-model="newListing.coordinates.longitude" </label>
+            </div>
+
+            <div class="col3">
+                <label for="addressField">Address:</label>
+                <input id="addressField" name="addressField" type="text" ng-model="newListing.address" </label>
+            </div>
+
+
         </div>
-        <div class="col-md-6">
+          <br>
+          <button ng-click="addListing()" class="addButton">Add listing</button>
+ 
+      
           <div class="jumbotron">
             <h2>Detailed Information</h2>
 
@@ -64,7 +97,7 @@
              
 
           </div>
-        </div>
+        
       </div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
