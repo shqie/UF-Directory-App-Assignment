@@ -1,11 +1,20 @@
 /* Fill out these functions using Mongoose queries*/
+Listing = require('./ListingSchema.js');
 
 var findLibraryWest = function() {
   /* 
     Find the document that contains data corresponding to Library West,
     then log it to the console. 
    */
+  Listing.find({code: 'LBW'}, function(err, listing){
+    if (err){
+      throw err;
+    }
+    
+    console.log(listing);   
+  });
 };
+
 var removeCable = function() {
   /*
     Find the document with the code 'CABL'. This cooresponds with courses that can only be viewed 
@@ -23,6 +32,13 @@ var retrieveAllListings = function() {
   /* 
     Retrieve all listings in the database, and log them to the console. 
    */
+  Listing.find({}, function(err, listings){
+    if (err){
+      throw err;
+    }
+    
+    console.log(listings);   
+  });
 };
 
 findLibraryWest();
