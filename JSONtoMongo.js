@@ -25,27 +25,35 @@ fs.readFile('listings.json', 'utf8', function(err, data) {
   }
   listingData = JSON.parse(data);
 
-  var i;
-    for(i = 2; i<listingData.entries.length; i++) {
-
-      newEntry = Listing({
-      code: listingData.entries[i].code,
-      name: listingData.entries[i].name,
-      coordinates: {
-        latitude: listingData.entries[i].coordinates.latitude,
-        longitude: listingData.entries[i].coordinates.longitude
-      },
-      address: listingData.entries[i].address
-     });
-
-     newEntry.save(function(err){
-        if (err) throw err;
-
-        console.log('New Entry!');
-     });
-    }
+  addData(listingData);
   
 });
+
+var addData = function (listingData){
+  for(var i = 0; i<listingData.entries.length; i++) {
+    listingData.entries[i].coordinates =  listingData.entries[i].coordinates || {};
+    listingData.entries[i].address =  listingData.entries[i].address || "";
+
+    newEntry = Listing({
+    code: listingData.entries[i].code,
+    name: listingData.entries[i].name,
+    coordinates: {
+      latitude: listingData.entries[i].coordinates.latitude,
+      longitude: listingData.entries[i].coordinates.longitude
+    },
+    address: listingData.entries[i].address
+   });
+
+   newEntry.save(function(err){
+      if (err){
+        console.log(err);
+        throw err;
+      } 
+
+      console.log('New Entry!');
+   });
+  }
+}
 
 
 /* 
