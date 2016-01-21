@@ -14,9 +14,10 @@ var findLibraryWest = function() {
    */
   Listing.find({code: 'LBW'}, function(err, listing){
     if (err){
+      console.log(err);
       throw err;
     }
-    
+
     console.log(listing);   
   });
 };
@@ -27,6 +28,19 @@ var removeCable = function() {
     on cable TV. Since we live in the 21st century and most courses are now web based, go ahead
     and remove this listing from your database and log the document to the console. 
    */
+  Listing.find({code: 'CABL'}, function(err, listing){
+    if (err){
+      console.log(err);
+      throw err;
+    }
+    
+    listing.remove(function(err){
+      if (err){
+        console.log(err);
+        throw(err);
+      }
+    });
+  });
 };
 var updatePhelpsMemorial = function() {
   /*
@@ -38,12 +52,11 @@ var retrieveAllListings = function() {
   /* 
     Retrieve all listings in the database, and log them to the console. 
    */
-   console.log("Hellssso");
   Listing.find({}, function(err, listings){
     if (err){
+      console.log(err);
       throw err;
     }
-    console.log("Hello");
     console.log(listings);   
   });
 };
