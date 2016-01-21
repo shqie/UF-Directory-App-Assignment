@@ -33,6 +33,21 @@ var updatePhelpsMemorial = function() {
     Phelps Memorial Hospital Center's address is incorrect. Find the listing, update it, and then 
     log the updated document to the console. 
    */
+
+  Listing.find({code: 'PHL'}, function(err, listing) {
+    if (err){
+      throw err;
+    }
+    listing.coordinates.latitude = 29.64461;
+    listing.coordinates.longitude = -82.34885539999999;
+    listing.address = '100 Phelps Lab P.O. Box 116350 Gainesville, FL  32611';
+
+    listing.save(function(err){
+      if(err){
+        throw err;
+      }
+    });
+  });
 };
 var retrieveAllListings = function() {
   /* 
@@ -51,4 +66,4 @@ var retrieveAllListings = function() {
 findLibraryWest();
 removeCable();
 updatePhelpsMemorial();
-//retrieveAllListings();
+retrieveAllListings();
