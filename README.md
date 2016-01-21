@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Assignment 3: Persisting data using MongoDB and Mongoose
 
 Our application at this point has a couple of issues: 
@@ -28,3 +29,12 @@ Instructions:
 3. Ensure your schema passes the tests by running `mocha listing.model.test.js`
 4. Fill out the `JSONtoMongo.js` script to add the listings to your database
 5. Complete the functions in `queries.js`
+=======
+# CEN3031 Assignment
+
+This repo contains 5 assignments for CEN3031.
+Switch branches to view the assignments.
+
+## [Assignment 1](https://github.com/CEN3031-spr16/UF-Directory-App-Assignment/tree/Assignment1)
+Introduction to HTTP and Asynchronous Programming using Node.js
+>>>>>>> 0b80a7896b02b172bd18bd4f93e7d4dcddebac8b
