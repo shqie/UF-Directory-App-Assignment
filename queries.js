@@ -27,6 +27,19 @@ var removeCable = function() {
     on cable TV. Since we live in the 21st century and most courses are now web based, go ahead
     and remove this listing from your database and log the document to the console. 
    */
+   Listing.find({code: 'CABL'}, function(err, listing){
+    if (err){
+      console.log(err);
+      throw err;
+    }
+    
+    listing.remove(function(err){
+      if (err){
+        console.log(err);
+        throw(err);
+      }
+    });
+  });
 };
 var updatePhelpsMemorial = function() {
   /*
