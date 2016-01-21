@@ -26,7 +26,6 @@ fs.readFile('listings.json', 'utf8', function(err, data) {
   listingData = JSON.parse(data);
 
   addData(listingData);
-  
 });
 
 var addData = function (listingData){
@@ -49,8 +48,6 @@ var addData = function (listingData){
         console.log(err);
         throw err;
       } 
-
-      console.log('New Entry!');
    });
   }
 }

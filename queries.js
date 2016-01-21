@@ -1,5 +1,11 @@
 /* Fill out these functions using Mongoose queries*/
-Listing = require('./ListingSchema.js');
+var mongoose = require('mongoose'),
+  Listing = require('./ListingSchema.js'),
+  config = require('./config');
+
+/* Connect to your database */
+mongoose.connect(config.db.uri);
+
 
 var findLibraryWest = function() {
   /* 
@@ -32,11 +38,12 @@ var retrieveAllListings = function() {
   /* 
     Retrieve all listings in the database, and log them to the console. 
    */
+   console.log("Hellssso");
   Listing.find({}, function(err, listings){
     if (err){
       throw err;
     }
-    
+    console.log("Hello");
     console.log(listings);   
   });
 };
@@ -44,4 +51,4 @@ var retrieveAllListings = function() {
 findLibraryWest();
 removeCable();
 updatePhelpsMemorial();
-retrieveAllListings();
+//retrieveAllListings();
